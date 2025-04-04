@@ -10,3 +10,6 @@ def abc_analys(df, index, cols):
         group_df[f'{col}_abc'] = np.where(group_df[f'cumsum_{col}'] < 0.8, 'A', 
                                          np.where(group_df[f'cumsum_{col}'] < 0.95, 'B', 'C'))
     return group_df[[f'{col}_abc' for col in cols]]
+
+'''В функцию передается исходный dataframe, index - название поля для группировки, cols - список полей для анализа.
+На выходе мы получаем многомерный ABC анализ по каждому полю из cols.'''
